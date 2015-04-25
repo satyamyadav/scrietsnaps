@@ -1,0 +1,123 @@
+<head>
+  <title>SCRIETsnaps</title>
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="javascript:void(0)">SCRIET  snaps</a>
+    </div>
+</div>
+    
+  <div class="well well">
+    {{#if currentUser}}
+     Hi ! {{> loginButtons }} ...
+    
+    {{else}}
+      Login or signup for posting...
+      {{> loginButtons}}
+    
+    {{/if}}
+     share snaps of our college whatever you like <br>
+    # decide before you like , you can't unlike ! <br>
+    # decide before posting, you can't delete what you posted ! <br>
+    # any content including your profile may be deleted for obvious resions without asking and telling you !
+
+  </div>
+
+      
+    {{#if currentUser}}
+      {{> postPhoto }}
+    {{/if}}
+    
+
+  {{#each photos}}
+    {{> photoCard}}
+  {{/each}}
+
+  
+<nav class="navbar navbar-default navbar-fixed-bottom" style="background:transparent">
+  <div class="container">
+ <!--  {{> loginBtn }} -->
+  {{#if currentUser}}
+    {{> takePhotoBtn }}
+
+  {{/if}}
+  </div>
+</nav>  
+</body>
+
+<template name="photoCard">
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+      <div class="row">
+      <div id="card" class="jumbotron">
+        <img class="img-responsive" src="{{data}}" />
+        <div class="caption">
+          <div class="">
+            <p class="text-muted">
+            <small>{{caption}}</small>
+            </p>
+          </div>
+          <div class="row">
+            <div class="col-xs-4 col-md-6">
+              <a href="javascript:void(0)" class="btn btn-flat btn-default"><i class="fa fa-smile-o"></i> {{username}}</a>
+
+            </div>
+            {{#if currentUser}}
+            <div class="col-xs-2 col-md-6"> 
+              <a href="javascript:void(0)" class="like btn btn-flat btn-default pull-right">
+                <i class="fa fa-heart" style="color:rgba(222,0,0,0.7)"></i> {{likedBy.length}}
+              </a>
+
+            </div>
+            <div class="col-xs-6 col-md-12"> 
+            {{> shareit }}
+
+            </div>
+            {{/if}}
+          </div>  
+        </div>
+      </div>
+    </div>
+</div>
+</template>
+
+<template name="postPhoto">
+<div class="modal" id="postPhotoModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <form class="add-photo">
+          {{#if unsubmittedPhoto}}
+            <div class="row">
+              <div class="col-xs-12">
+                <img src="{{unsubmittedPhoto}}" class="unsubmitted-photo img-responsive" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-8 np">
+                <input type="text" name="caption" class="form-control"
+                  placeholder="   type a caption for your new photo!"/>
+              </div>
+              <div class="col-xs-4 np">
+                <button class="btn btn-primary btn-fab btn-raised mdi-content-send pull-right"></button>
+              </div>
+            </div>
+          {{/if}}
+            
+        </form>
+    </div>
+  </div>
+</div>
+</template>
+<template name="takePhotoBtn">
+        <a href="javascript:void(0)" class="take-photo btn btn-primary btn-fab btn-raised pull-right mdi-image-camera-alt"></a>
+<!-- <a href="#" class="take-photo btn btn-primary pull-left">          <i class="fa fa-camera"></i>
+          click
+        </a> -->
+</template>
+<template name="loginBtn">
+        <a href="javascript:void(0)" class="login-btn btn btn-primary btn-fab btn-raised pull-left mdi-social-person"></a>
+<!-- <a href="#" class="take-photo btn btn-primary pull-left">          <i class="fa fa-camera"></i>
+          click
+        </a> -->
+</template>
