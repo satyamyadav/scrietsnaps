@@ -55,13 +55,13 @@
         <img class="img-responsive" src="{{data}}" />
           <div class="row" style=" background:rgba(111,111,111,0.05)">
             {{#if currentUser}}
-            <div class="col-xs-2 col-md-3 np"> 
+            <div class="col-xs-3 np"> 
               <a href="javascript:void(0)" class="like btn btn-default pull-right">
                 <i class="fa fa-heart"></i> {{likedBy.length}}
               </a>
 
             </div>
-            <div class="col-xs-10 col-md-9 np"> 
+            <div class="col-xs-9 np"> 
             {{> shareit }}
 
             </div>
@@ -89,6 +89,11 @@
 <div class="modal" id="postPhotoModal">
   <div class="modal-dialog">
     <div class="modal-content">
+    <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h5 class="modal-title">Share your photo ...</h5>
+            </div>
+
         <form class="add-photo">
           {{#if unsubmittedPhoto}}
             <div class="row">
