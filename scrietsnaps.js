@@ -15,7 +15,7 @@ if (Meteor.isClient) {
 
     shareData: function() {
       return {
-        photos: this.data,
+        photos: data,
         author: Meteor.users.findOne(this.authorId)
       }
     }
@@ -70,6 +70,9 @@ if (Meteor.isClient) {
     },
 
   });
+
+
+
     // capture the event for taking a photo to be submitted
   
   Template.takePhotoBtn.events({
@@ -119,7 +122,7 @@ if (Meteor.isClient) {
                           // The classes that will be placed on the sharing buttons, bootstrap by default.
     iconOnly: true,      // boolean (default: false)
                           // Don't put text on the sharing buttons
-    applyColors: true,     // boolean (default: true)
+    applyColors: false,     // boolean (default: true)
                           // apply classes to inherit each social networks background color
     faSize: '',            // font awesome size
     faClass: 'square'       // font awesome classes like square

@@ -11,7 +11,7 @@ body { padding-top: 70px; }
 }
 
 #postPhotoModal .modal-content {
-  box-shadow: 0px 0px 100px 10px black;
+  box-shadow: 0px 0px 150px 20px black;
 }
 
 #card {
@@ -48,3 +48,4 @@ body { padding-top: 70px; }
   margin-left: 0;
   margin-right: 0;
 }
+

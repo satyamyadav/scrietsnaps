@@ -15,8 +15,8 @@
      Hi ! {{> loginButtons }} ...
     
     {{else}}
-      Login or signup for posting...
       {{> loginButtons}}
+    and...
     
     {{/if}}
      share snaps of our college whatever you like <br>
@@ -38,7 +38,7 @@
 
   
 <nav class="navbar navbar-default navbar-fixed-bottom" style="background:transparent">
-  <div class="container">
+  <div style="margin-bottom:20px; text-align:center">
  <!--  {{> loginBtn }} -->
   {{#if currentUser}}
     {{> takePhotoBtn }}
@@ -53,32 +53,33 @@
       <div class="row">
       <div id="card" class="jumbotron">
         <img class="img-responsive" src="{{data}}" />
-          <div class="">
-            <div class="col-xs-8 col-lg-6">
-              <small>{{caption}}</small>
-            </div>
-            <div class="col-xs-4 col-lg-6">
-              <small class="text-muted">{{createdAt}}</small>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-4 col-md-6">
-              <a href="javascript:void(0)" class="btn btn-flat btn-default"><i class="fa fa-smile-o"></i> {{username}}</a>
-
-            </div>
+          <div class="row" style=" background:rgba(111,111,111,0.05)">
             {{#if currentUser}}
-            <div class="col-xs-2 col-md-6"> 
-              <a href="javascript:void(0)" class="like btn btn-flat btn-default pull-right">
-                <i class="fa fa-heart" style="color:rgba(222,0,0,0.7)"></i> {{likedBy.length}}
+            <div class="col-xs-2 col-md-3 np"> 
+              <a href="javascript:void(0)" class="like btn btn-default pull-right">
+                <i class="fa fa-heart"></i> {{likedBy.length}}
               </a>
 
             </div>
-            <div class="col-xs-6 col-md-12"> 
-            {{> shareit shareData }}
+            <div class="col-xs-10 col-md-9 np"> 
+            {{> shareit }}
 
             </div>
             {{/if}}
           </div>  
+          <div class="row">
+            <div class="col-xs-6 col-md-6">
+              <a href="#"><i class="fa fa-smile-o"></i> {{username}}</a>
+            </div>
+            <div class="col-xs-6 col-lg-6 np">
+              <small class="text-muted">{{createdAt}}</small>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 ">
+              <small>{{caption}}</small>
+            </div>
+          </div>
       </div>
     </div>
 </div>
@@ -112,10 +113,7 @@
 </div>
 </template>
 <template name="takePhotoBtn">
-        <a href="javascript:void(0)" class="take-photo btn btn-primary btn-fab btn-raised pull-right mdi-image-camera-alt"></a>
-<!-- <a href="#" class="take-photo btn btn-primary pull-left">          <i class="fa fa-camera"></i>
-          click
-        </a> -->
+  <a href="javascript:void(0)" class="take-photo btn btn-primary btn-fab btn-raised mdi-image-camera-alt" ></a>
 </template>
 <template name="loginBtn">
         <a href="javascript:void(0)" class="login-btn btn btn-primary btn-fab btn-raised pull-left mdi-social-person"></a>
