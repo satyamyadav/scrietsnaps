@@ -8,6 +8,7 @@
         <a class="navbar-brand" href="javascript:void(0)">SCRIET  snaps</a>
     </div>
 </div>
+  
     
   <div class="well well">
     {{#if currentUser}}
@@ -48,15 +49,17 @@
 </body>
 
 <template name="photoCard">
-    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 np">
       <div class="row">
       <div id="card" class="jumbotron">
         <img class="img-responsive" src="{{data}}" />
-        <div class="caption">
           <div class="">
-            <p class="text-muted">
-            <small>{{caption}}</small>
-            </p>
+            <div class="col-xs-8 col-lg-6">
+              <small>{{caption}}</small>
+            </div>
+            <div class="col-xs-4 col-lg-6">
+              <small class="text-muted">{{createdAt}}</small>
+            </div>
           </div>
           <div class="row">
             <div class="col-xs-4 col-md-6">
@@ -71,12 +74,11 @@
 
             </div>
             <div class="col-xs-6 col-md-12"> 
-            {{> shareit }}
+            {{> shareit shareData }}
 
             </div>
             {{/if}}
           </div>  
-        </div>
       </div>
     </div>
 </div>

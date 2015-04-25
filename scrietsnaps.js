@@ -11,13 +11,14 @@ if (Meteor.isClient) {
   Template.body.helpers({
     photos: function () {
       return Photos.find({}, {sort: {createdAt: -1}});
-    }
-/*
+    },
+
     shareData: function() {
       return {
         photos: this.data,
+        author: Meteor.users.findOne(this.authorId)
       }
-    }*/
+    }
   });
 
   // capture a click event for the like button
@@ -121,7 +122,7 @@ if (Meteor.isClient) {
     applyColors: true,     // boolean (default: true)
                           // apply classes to inherit each social networks background color
     faSize: '',            // font awesome size
-    faClass: ''       // font awesome classes like square
+    faClass: 'square'       // font awesome classes like square
   });
 
 
